@@ -9,7 +9,7 @@ IVI Standard Root Dir = "/C/Program Files (x86)/IVI Foundation/IVI"
 VXIplug&play Framework Dir = "/C/Program Files (x86)/IVI Foundation/VISA/winnt"
 IVI Standard Root 64-bit Dir = "/C/Program Files/IVI Foundation/IVI"
 VXIplug&play Framework 64-bit Dir = "/C/Program Files/IVI Foundation/VISA/win64"
-Number of Files = 3
+Number of Files = 4
 Target Type = "Executable"
 Flags = 16
 Copied From Locked InstrDrv Directory = False
@@ -50,6 +50,18 @@ Path = "/c/Users/xuza1/Projects/MCTBox/MCTBox_Diagnose/MCTBox_Diagnose.uir"
 Exclude = False
 Project Flags = 0
 Folder = "User Interface Files"
+
+[File 0004]
+File Type = "CSource"
+Res Id = 4
+Path Is Rel = True
+Path Rel To = "Project"
+Path Rel Path = "MCTBox_Diagnose_UIEventCallBack.c"
+Path = "/c/Users/xuza1/Projects/MCTBox/MCTBox_Diagnose/MCTBox_Diagnose_UIEventCallBack.c"
+Exclude = False
+Compile Into Object File = False
+Project Flags = 0
+Folder = "Source Files"
 
 [Folders]
 Instrument Files Folder Not Added Yet = True
