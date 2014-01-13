@@ -1,6 +1,6 @@
 /**************************************************************************/
 /* LabWindows/CVI User Interface Resource (UIR) Include File              */
-/* Copyright (c) National Instruments 2013. All Rights Reserved.          */
+/* Copyright (c) National Instruments 2014. All Rights Reserved.          */
 /*                                                                        */
 /* WARNING: Do not add to, delete from, or otherwise modify the contents  */
 /*          of this include file.                                         */
@@ -31,7 +31,7 @@
 #define  MENUBAR_Menu_File_Separator      5
 #define  MENUBAR_Menu_File_Exit           6       /* callback function: CB_MenuFile_Exit */
 #define  MENUBAR_Menu_Catalogue           7
-#define  MENUBAR_Menu_Catalogue_SwitchCtrl 8
+#define  MENUBAR_Menu_Catalogue_SwitchCtrl 8      /* callback function: CB_DisplaySwitchCtrlPanel */
 #define  MENUBAR_Menu_Catalogue_DIO       9
 #define  MENUBAR_Menu_Catalogue_DIO_SUBMENU 10
 #define  MENUBAR_Menu_Catalogue_DIO_DIN   11
@@ -55,6 +55,7 @@
 
      /* Callback Prototypes: */
 
+void CVICALLBACK CB_DisplaySwitchCtrlPanel(int menubar, int menuItem, void *callbackData, int panel);
 int  CVICALLBACK CB_MCTBoxDiagnose_Exit(int panel, int event, void *callbackData, int eventData1, int eventData2);
 void CVICALLBACK CB_MenuFile_Connect(int menubar, int menuItem, void *callbackData, int panel);
 void CVICALLBACK CB_MenuFile_Disconnect(int menubar, int menuItem, void *callbackData, int panel);
