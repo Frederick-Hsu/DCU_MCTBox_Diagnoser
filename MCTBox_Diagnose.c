@@ -17,7 +17,7 @@
 #include <userint.h>
 #include "MCTBox_Diagnose.h"
 
-static int MCTBox_Diagnose_Utility_Panel;
+int MCTBox_Diagnose_Utility_Panel;
 
 int main (int argc, char *argv[])
 {
