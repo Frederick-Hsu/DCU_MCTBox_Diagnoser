@@ -18,6 +18,7 @@
 #include "MCTBox_API.h"
 #include "macros.h"
 #include "Catalogue_SwitchControl/MCTBox_Diagnose_SwitchControlPanel.h"
+#include "Catalogue_DIO/MCTBox_Diagnose_DoutPanel.h"
 
 //==============================================================================
 // Constants
@@ -94,7 +95,7 @@ void CVICALLBACK CB_MenuFile_Exit(int menubar, int menuItem, void *callbackData,
 
 
 /****************************    "Catalogue" menu    ********************************/   
-void CVICALLBACK CB_DisplaySwitchCtrlPanel(int menubar, int menuItem, void *callbackData, int panel)
+void CVICALLBACK CB_MenuCatalogueSwitchCtrl_DisplaySwitchCtrlPanel(int menubar, int menuItem, void *callbackData, int panel)
 {
 	int hPanelWhichYouWantToClose = 0;
 	HWND hParentWindow_MCTBoxMainPnl = NULL, hChildWindow_SwitchCtrlPnl = NULL;
@@ -117,5 +118,27 @@ void CVICALLBACK CB_DisplaySwitchCtrlPanel(int menubar, int menuItem, void *call
 	DisplayPanel(hCurrentPanel);
 	hPanelWhichYouWantToClose = RunUserInterface();
 	DiscardPanel(hPanelWhichYouWantToClose);
+	return;
+}
+
+void CVICALLBACK CB_MenCatalogueDout_DisplayDoutPanel(int menubar, int menuItem, void *callbackData, int panel)
+{
+	int hDoutPanelWhichYouWant2Close = 0;
+	HWND hParent_MainPnl = NULL, hChild_DoutPnl = NULL;
+	
+	hPnl_t hDoutPanel = 0;
+	if ((hDoutPanel = LoadPanel(MCTBox_Diagnose_Utility_Panel, "MCTBox_Diagnose_DoutPanel.uir", pnlDOUT))<0)
+	{
+		MessagePopup("Error", "Failed to load the Digital-OUT Panel!");
+		return;
+	}
+	
+	GetPanelAttribute(MCTBox_Diagnose_Utility_Panel, ATTR_SYSTEM_WINDOW_HANDLE, (int *)&hParent_MainPnl);
+	GetPanelAttribute(hDoutPanel, ATTR_SYSTEM_WINDOW_HANDLE, (int *)&hChild_DoutPnl);
+	SetParent(hChild_DoutPnl, hParent_MainPnl);
+	
+	DisplayPanel(hDoutPanel);
+	hDoutPanelWhichYouWant2Close = RunUserInterface();
+	DiscardPanel(hDoutPanelWhichYouWant2Close);
 	return;
 }
