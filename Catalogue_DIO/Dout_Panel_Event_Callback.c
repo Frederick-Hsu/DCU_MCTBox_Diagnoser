@@ -13,7 +13,7 @@
 #include <userint.h>
 #include <stdio.h>
 #include "MCTBox_Diagnose_DoutPanel.h"
-#include "Dout_Panel_Event_Callback.h"
+#include "DIO_Panel_Event_Callback.h"
 #include "../misc.h"
 
 #include "MCTBox_API_DIO.h"
@@ -22,7 +22,7 @@
 // Constants
 
 //==============================================================================
-// Types
+// Types																								    
 
 //==============================================================================
 // Static global variables
