@@ -19,6 +19,7 @@
 #include "MCTBox_API.h"
 #include "utilities.h"
 #include "macros.h"
+#include "MCTBox_Diagnose.h"
 
 //==============================================================================
 // Constants
@@ -34,6 +35,8 @@
 
 //==============================================================================
 // Global variables
+extern int MCTBox_Diagnose_Utility_Panel;	// Parent panel : Main UI ==> MCTBox_Diagnose.uir
+
 int hPnl_Connect2MCTBox_Panel;
 int g_iConnect2MCTBoxStatus = 0;
 
@@ -45,7 +48,7 @@ int  CVICALLBACK CB_ExitConnectPanel(int panel, int event, void *callbackData, i
 	switch (event)
 	{
 	case EVENT_CLOSE:
-		iResult = QuitUserInterface(0);
+		iResult = QuitUserInterface(panel);
 		break;
 	default:
 		break;
@@ -63,7 +66,7 @@ int  CVICALLBACK CB_Connect2MCTBox(int panel, int control, int event, void *call
 	switch (event)
 	{
 	case EVENT_COMMIT:
-		GetCtrlVal(hPnl_Connect2MCTBox_Panel, PnlConnect_strSerialPortNr, sComPortNr);
+		GetCtrlVal(panel, PnlConnect_strSerialPortNr, sComPortNr);
 		if (!strnicmp(sComPortNr, "COM", 3))
 		{
 			strncpy(sIntermediateComPortNr, sComPortNr+3, strlen(sComPortNr)-3);
@@ -86,7 +89,7 @@ int  CVICALLBACK CB_Connect2MCTBox(int panel, int control, int event, void *call
 		{
 			sprintf(sError, "Failed to connect to MCTBox instrument. \n\n%s", sComError);
 			MessagePopup("Error", sError);
-			QuitUserInterface(0);
+			QuitUserInterface(panel);
 			return iResult;
 		}
 		
@@ -97,7 +100,7 @@ int  CVICALLBACK CB_Connect2MCTBox(int panel, int control, int event, void *call
 		if (0 == strlen(sMCTBoxResponse))
 		{
 			MessagePopup("Error", "Fail to get response from MCTBox!");
-			QuitUserInterface(0);
+			QuitUserInterface(panel);
 			return iResult;
 		}
 		MessagePopup("Success", sMCTBoxResponse);
@@ -109,8 +112,11 @@ int  CVICALLBACK CB_Connect2MCTBox(int panel, int control, int event, void *call
 		 *
 		 * Remarked by XU ZAN@2013-12-14
 		 */
+		// Disable the dimming to menu "Catalogue"
+		// GetPanelMenuBar();
+		// SetCtrlAttribute(GetPanelMenuBar(MCTBox_Diagnose_Utility_Panel), MENUBAR_Menu_Catalogue, ATTR_DIMMED, 0);
 		
-		QuitUserInterface(0);
+		QuitUserInterface(panel);
 		
 		break;
 	default:

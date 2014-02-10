@@ -9,7 +9,7 @@ IVI Standard Root Dir = "/C/Program Files (x86)/IVI Foundation/IVI"
 VXIplug&play Framework Dir = "/C/Program Files (x86)/IVI Foundation/VISA/winnt"
 IVI Standard Root 64-bit Dir = "/C/Program Files/IVI Foundation/IVI"
 VXIplug&play Framework 64-bit Dir = "/C/Program Files/IVI Foundation/VISA/win64"
-Number of Files = 25
+Number of Files = 28
 Target Type = "Executable"
 Flags = 16
 Copied From Locked InstrDrv Directory = False
@@ -56,9 +56,9 @@ File Type = "CSource"
 Res Id = 4
 Path Is Rel = True
 Path Rel To = "Project"
-Path Rel Path = "Catalogue_DIO/Dout_Panel_Event_Callback.c"
-Path Line0001 = "/c/Users/xuza1/Projects/MCTBox/MCTBox_Diagnose/Catalogue_DIO/Dout_Panel_Event_Ca"
-Path Line0002 = "llback.c"
+Path Rel Path = "Catalogue_DIO/Din_Panel_Event_Callback.c"
+Path Line0001 = "/c/Users/xuza1/Projects/MCTBox/MCTBox_Diagnose/Catalogue_DIO/Din_Panel_Event_Cal"
+Path Line0002 = "lback.c"
 Exclude = False
 Compile Into Object File = False
 Project Flags = 0
@@ -69,16 +69,29 @@ File Type = "Include"
 Res Id = 5
 Path Is Rel = True
 Path Rel To = "Project"
-Path Rel Path = "Catalogue_DIO/Dout_Panel_Event_Callback.h"
-Path Line0001 = "/c/Users/xuza1/Projects/MCTBox/MCTBox_Diagnose/Catalogue_DIO/Dout_Panel_Event_Ca"
-Path Line0002 = "llback.h"
+Path Rel Path = "Catalogue_DIO/DIO_Panel_Event_Callback.h"
+Path Line0001 = "/c/Users/xuza1/Projects/MCTBox/MCTBox_Diagnose/Catalogue_DIO/DIO_Panel_Event_Cal"
+Path Line0002 = "lback.h"
 Exclude = False
 Project Flags = 0
 Folder = "Catalogue_DIO"
 
 [File 0006]
-File Type = "Include"
+File Type = "CSource"
 Res Id = 6
+Path Is Rel = True
+Path Rel To = "Project"
+Path Rel Path = "Catalogue_DIO/Dout_Panel_Event_Callback.c"
+Path Line0001 = "/c/Users/xuza1/Projects/MCTBox/MCTBox_Diagnose/Catalogue_DIO/Dout_Panel_Event_Ca"
+Path Line0002 = "llback.c"
+Exclude = False
+Compile Into Object File = False
+Project Flags = 0
+Folder = "Catalogue_DIO"
+
+[File 0007]
+File Type = "Include"
+Res Id = 7
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "macros.h"
@@ -87,9 +100,9 @@ Exclude = False
 Project Flags = 0
 Folder = "Include Files"
 
-[File 0007]
+[File 0008]
 File Type = "Include"
-Res Id = 7
+Res Id = 8
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "../MCTBox_API/MCTBox_API.h"
@@ -98,24 +111,13 @@ Exclude = False
 Project Flags = 0
 Folder = "MCTBox_API"
 
-[File 0008]
+[File 0009]
 File Type = "Library"
-Res Id = 8
+Res Id = 9
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "../../../../../TesterSources/Sut2DllTemplate-999999-xx/EOL-Source/MCTBox_API.lib"
 Path = "/c/TesterSources/Sut2DllTemplate-999999-xx/EOL-Source/MCTBox_API.lib"
-Exclude = False
-Project Flags = 0
-Folder = "MCTBox_API"
-
-[File 0009]
-File Type = "Include"
-Res Id = 9
-Path Is Rel = True
-Path Rel To = "Project"
-Path Rel Path = "../MCTBox_API/MCTBox_API_DIO.h"
-Path = "/c/Users/xuza1/Projects/MCTBox/MCTBox_API/MCTBox_API_DIO.h"
 Exclude = False
 Project Flags = 0
 Folder = "MCTBox_API"
@@ -125,8 +127,8 @@ File Type = "Include"
 Res Id = 10
 Path Is Rel = True
 Path Rel To = "Project"
-Path Rel Path = "../MCTBox_API/MCTBox_API_import_export.h"
-Path = "/c/Users/xuza1/Projects/MCTBox/MCTBox_API/MCTBox_API_import_export.h"
+Path Rel Path = "../MCTBox_API/MCTBox_API_DIO.h"
+Path = "/c/Users/xuza1/Projects/MCTBox/MCTBox_API/MCTBox_API_DIO.h"
 Exclude = False
 Project Flags = 0
 Folder = "MCTBox_API"
@@ -136,15 +138,26 @@ File Type = "Include"
 Res Id = 11
 Path Is Rel = True
 Path Rel To = "Project"
+Path Rel Path = "../MCTBox_API/MCTBox_API_import_export.h"
+Path = "/c/Users/xuza1/Projects/MCTBox/MCTBox_API/MCTBox_API_import_export.h"
+Exclude = False
+Project Flags = 0
+Folder = "MCTBox_API"
+
+[File 0012]
+File Type = "Include"
+Res Id = 12
+Path Is Rel = True
+Path Rel To = "Project"
 Path Rel Path = "../MCTBox_API/MCTBox_API_SwitchControl.h"
 Path = "/c/Users/xuza1/Projects/MCTBox/MCTBox_API/MCTBox_API_SwitchControl.h"
 Exclude = False
 Project Flags = 0
 Folder = "MCTBox_API"
 
-[File 0012]
+[File 0013]
 File Type = "CSource"
-Res Id = 12
+Res Id = 13
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "MCTBox_Diagnose.c"
@@ -154,9 +167,9 @@ Compile Into Object File = False
 Project Flags = 0
 Folder = "Source Files"
 
-[File 0013]
+[File 0014]
 File Type = "Include"
-Res Id = 13
+Res Id = 14
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "MCTBox_Diagnose.h"
@@ -165,9 +178,9 @@ Exclude = False
 Project Flags = 0
 Folder = "Include Files"
 
-[File 0014]
+[File 0015]
 File Type = "User Interface Resource"
-Res Id = 14
+Res Id = 15
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "MCTBox_Diagnose.uir"
@@ -176,9 +189,33 @@ Exclude = False
 Project Flags = 0
 Folder = "User Interface Files"
 
-[File 0015]
+[File 0016]
 File Type = "Include"
-Res Id = 15
+Res Id = 16
+Path Is Rel = True
+Path Rel To = "Project"
+Path Rel Path = "Catalogue_DIO/MCTBox_Diagnose_DinPanel.h"
+Path Line0001 = "/c/Users/xuza1/Projects/MCTBox/MCTBox_Diagnose/Catalogue_DIO/MCTBox_Diagnose_Din"
+Path Line0002 = "Panel.h"
+Exclude = False
+Project Flags = 0
+Folder = "Catalogue_DIO"
+
+[File 0017]
+File Type = "User Interface Resource"
+Res Id = 17
+Path Is Rel = True
+Path Rel To = "Project"
+Path Rel Path = "Catalogue_DIO/MCTBox_Diagnose_DinPanel.uir"
+Path Line0001 = "/c/Users/xuza1/Projects/MCTBox/MCTBox_Diagnose/Catalogue_DIO/MCTBox_Diagnose_Din"
+Path Line0002 = "Panel.uir"
+Exclude = False
+Project Flags = 0
+Folder = "Catalogue_DIO"
+
+[File 0018]
+File Type = "Include"
+Res Id = 18
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "Catalogue_DIO/MCTBox_Diagnose_DoutPanel.h"
@@ -188,9 +225,9 @@ Exclude = False
 Project Flags = 0
 Folder = "Catalogue_DIO"
 
-[File 0016]
+[File 0019]
 File Type = "User Interface Resource"
-Res Id = 16
+Res Id = 19
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "Catalogue_DIO/MCTBox_Diagnose_DoutPanel.uir"
@@ -200,9 +237,9 @@ Exclude = False
 Project Flags = 0
 Folder = "Catalogue_DIO"
 
-[File 0017]
+[File 0020]
 File Type = "Include"
-Res Id = 17
+Res Id = 20
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "Catalogue_SwitchControl/MCTBox_Diagnose_SwitchControlPanel.h"
@@ -212,9 +249,9 @@ Exclude = False
 Project Flags = 0
 Folder = "Catalogue_SwitchControl"
 
-[File 0018]
+[File 0021]
 File Type = "User Interface Resource"
-Res Id = 18
+Res Id = 21
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "Catalogue_SwitchControl/MCTBox_Diagnose_SwitchControlPanel.uir"
@@ -224,9 +261,9 @@ Exclude = False
 Project Flags = 0
 Folder = "Catalogue_SwitchControl"
 
-[File 0019]
+[File 0022]
 File Type = "CSource"
-Res Id = 19
+Res Id = 22
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "MCTBox_Diagnose_UIEventCallBack.c"
@@ -236,9 +273,9 @@ Compile Into Object File = False
 Project Flags = 0
 Folder = "Source Files"
 
-[File 0020]
+[File 0023]
 File Type = "CSource"
-Res Id = 20
+Res Id = 23
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "misc.c"
@@ -248,9 +285,9 @@ Compile Into Object File = False
 Project Flags = 0
 Folder = "Source Files"
 
-[File 0021]
+[File 0024]
 File Type = "Include"
-Res Id = 21
+Res Id = 24
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "misc.h"
@@ -259,9 +296,9 @@ Exclude = False
 Project Flags = 0
 Folder = "Include Files"
 
-[File 0022]
+[File 0025]
 File Type = "CSource"
-Res Id = 22
+Res Id = 25
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "Catalogue_SwitchControl/Switch_Control.c"
@@ -272,9 +309,9 @@ Compile Into Object File = False
 Project Flags = 0
 Folder = "Catalogue_SwitchControl"
 
-[File 0023]
+[File 0026]
 File Type = "Include"
-Res Id = 23
+Res Id = 26
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "Catalogue_SwitchControl/Switch_Control.h"
@@ -284,9 +321,9 @@ Exclude = False
 Project Flags = 0
 Folder = "Catalogue_SwitchControl"
 
-[File 0024]
+[File 0027]
 File Type = "CSource"
-Res Id = 24
+Res Id = 27
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "utilities.c"
@@ -296,9 +333,9 @@ Compile Into Object File = False
 Project Flags = 0
 Folder = "Source Files"
 
-[File 0025]
+[File 0028]
 File Type = "Include"
-Res Id = 25
+Res Id = 28
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "utilities.h"
