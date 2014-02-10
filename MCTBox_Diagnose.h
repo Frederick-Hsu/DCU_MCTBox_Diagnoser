@@ -34,8 +34,8 @@
 #define  MENUBAR_Menu_Catalogue_SwitchCtrl 8      /* callback function: CB_MenuCatalogueSwitchCtrl_DisplaySwitchCtrlPanel */
 #define  MENUBAR_Menu_Catalogue_DIO       9
 #define  MENUBAR_Menu_Catalogue_DIO_SUBMENU 10
-#define  MENUBAR_Menu_Catalogue_DIO_DIN   11
-#define  MENUBAR_Menu_Catalogue_DIO_DOUT  12      /* callback function: CB_MenCatalogueDout_DisplayDoutPanel */
+#define  MENUBAR_Menu_Catalogue_DIO_DIN   11      /* callback function: CB_MenuCatalogueDin_DisplayDinPanel */
+#define  MENUBAR_Menu_Catalogue_DIO_DOUT  12      /* callback function: CB_MenuCatalogueDout_DisplayDoutPanel */
 #define  MENUBAR_Menu_Catalogue_ADC       13
 #define  MENUBAR_Menu_Catalogue_DAC       14
 #define  MENUBAR_Menu_Catalogue_PWM       15
@@ -56,7 +56,8 @@
      /* Callback Prototypes: */
 
 int  CVICALLBACK CB_MCTBoxDiagnose_Exit(int panel, int event, void *callbackData, int eventData1, int eventData2);
-void CVICALLBACK CB_MenCatalogueDout_DisplayDoutPanel(int menubar, int menuItem, void *callbackData, int panel);
+void CVICALLBACK CB_MenuCatalogueDin_DisplayDinPanel(int menubar, int menuItem, void *callbackData, int panel);
+void CVICALLBACK CB_MenuCatalogueDout_DisplayDoutPanel(int menubar, int menuItem, void *callbackData, int panel);
 void CVICALLBACK CB_MenuCatalogueSwitchCtrl_DisplaySwitchCtrlPanel(int menubar, int menuItem, void *callbackData, int panel);
 void CVICALLBACK CB_MenuFile_Connect(int menubar, int menuItem, void *callbackData, int panel);
 void CVICALLBACK CB_MenuFile_Disconnect(int menubar, int menuItem, void *callbackData, int panel);
