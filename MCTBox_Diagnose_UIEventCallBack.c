@@ -12,7 +12,7 @@
 //==============================================================================
 // Include files
 #include <windows.h>
-#include "asynctmr.h"
+#include <asynctmr.h>
 
 #include "MCTBox_Diagnose.h"
 #include "Connect2MCTBox.h"
@@ -21,6 +21,7 @@
 #include "Catalogue_SwitchControl/MCTBox_Diagnose_SwitchControlPanel.h"
 #include "Catalogue_DIO/MCTBox_Diagnose_DoutPanel.h"
 #include "Catalogue_DIO/DIO_Panel_Event_Callback.h"
+#include "Catalogue_ADC_DAC/MCTBox_Diagnose_ADCPanel.h"
 
 //==============================================================================
 // Constants
@@ -59,6 +60,7 @@ int  CVICALLBACK CB_MCTBoxDiagnose_Exit(int panel, int event, void *callbackData
 	return 0;
 }
 
+/****************************    "File" --> "Connect" menu    ********************************/
 void CVICALLBACK CB_MenuFile_Connect(int menubar, int menuItem, void *callbackData, int panel)
 {
 	int hPanel = 0;
@@ -80,6 +82,7 @@ void CVICALLBACK CB_MenuFile_Connect(int menubar, int menuItem, void *callbackDa
 	return;
 }
 
+/****************************    "File" --> "Disconnect" menu    ********************************/
 void CVICALLBACK CB_MenuFile_Disconnect(int menubar, int menuItem, void *callbackData, int panel)
 {
 	int iResult = 0;
@@ -105,13 +108,14 @@ void CVICALLBACK CB_MenuFile_Disconnect(int menubar, int menuItem, void *callbac
 	return;
 }
 
+/****************************    "File" --> "Exit" menu    ********************************/
 void CVICALLBACK CB_MenuFile_Exit(int menubar, int menuItem, void *callbackData, int panel)
 {
 	QuitUserInterface(panel);
 }
 
 
-/****************************    "Catalogue" menu    ********************************/   
+/****************************    "Catalogue" --> "Switch Control" menu    ********************************/   
 void CVICALLBACK CB_MenuCatalogueSwitchCtrl_DisplaySwitchCtrlPanel(int menubar, int menuItem, void *callbackData, int panel)
 {
 	int hPanelWhichYouWantToClose = 0;
@@ -138,6 +142,7 @@ void CVICALLBACK CB_MenuCatalogueSwitchCtrl_DisplaySwitchCtrlPanel(int menubar, 
 	return;
 }
 
+/****************************    "Catalogue" --> "DIO" --> "Digital Out" menu    ********************************/   
 void CVICALLBACK CB_MenuCatalogueDout_DisplayDoutPanel(int menubar, int menuItem, void *callbackData, int panel)
 {
 	int hDoutPanelWhichYouWant2Close = 0;
@@ -160,8 +165,9 @@ void CVICALLBACK CB_MenuCatalogueDout_DisplayDoutPanel(int menubar, int menuItem
 	return;
 }
 
-static int iOpenFlagOfMultiDinPanels = 0;
 
+/****************************    "Catalogue" --> "DIO" --> "Digital In" menu    ********************************/   
+static int iOpenFlagOfMultiDinPanels = 0;	 
 void CVICALLBACK CB_MenuCatalogueDin_DisplayDinPanel(int menubar, int menuItem, void *callbackData, int panel)
 {
 	int hDinPanelWhichYouWant2Close = 0;
@@ -203,4 +209,36 @@ void CVICALLBACK CB_MenuCatalogueDin_DisplayDinPanel(int menubar, int menuItem, 
 	}
 	
 	return;
+}
+
+/****************************    "Catalogue" --> "A/D acquiring & measuring" menu    ********************************/   
+static int iOpenedFlagOfAdcPnl = 0;
+void CVICALLBACK CB_MenuCatalogueADC_DisplayAdcPanel(int menubar, int menuItem, void *callbackData, int panel)
+{
+	int hPnlADC2Close = 0;
+	HWND hParent_MainPnl = NULL, hChild_AdcPnl = NULL;
+	hPnl_t hPnlAdc = 0;
+	
+	if (iOpenedFlagOfAdcPnl == 0)
+	{
+		hPnlAdc = LoadPanel(MCTBox_Diagnose_Utility_Panel, "MCTBox_Diagnose_ADCPanel.uir", pnlADC);
+		if (hPnlAdc < 0)
+		{
+			MessagePopup("Error", "Failed to load the ADC panel!");
+			return;
+		}											  
+		iOpenedFlagOfAdcPnl = 1;	// Already opened.
+		
+		/******************************************************************************************/
+		GetPanelAttribute(MCTBox_Diagnose_Utility_Panel, ATTR_SYSTEM_WINDOW_HANDLE, (int *)&hParent_MainPnl);
+		GetPanelAttribute(hPnlAdc, ATTR_SYSTEM_WINDOW_HANDLE, (int *)&hChild_AdcPnl);
+		SetParent(hChild_AdcPnl, hParent_MainPnl);
+		
+		/******************************************************************************************/
+		DisplayPanel(hPnlAdc);
+		hPnlADC2Close = RunUserInterface();
+		DiscardPanel(hPnlADC2Close);
+		
+		iOpenedFlagOfAdcPnl = 0;	// Already closed
+	}
 }
