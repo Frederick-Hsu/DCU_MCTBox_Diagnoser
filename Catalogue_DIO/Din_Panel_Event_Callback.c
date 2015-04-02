@@ -239,7 +239,7 @@ int CVICALLBACK CB_AsyncTimerContinuousQueryDinPortState(int 	iReserved,
 			TurnOnOffCurrentLED_ByChannelNr(hCurrentPanelHandle, iCnt, eCurrentDinPortState);
 		}
 #else
-		iError = MCTBoxAPI_DIOModule_ParallelQueryDin24PortsState(g_ulDinBoardID, eDin24PortsState, sError);
+		iError = MCTBoxAPI_DIOModule_ParallelQueryDin24PortsState(eDin24PortsState, sError);
 		if (iError)
 		{
 			MessagePopup("Error", sError);
