@@ -2,5 +2,6 @@
 *.exe
 *.cdb
 *.cws
-cvibuild*/
-/.project
+*.project
+
+
