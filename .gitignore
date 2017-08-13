@@ -4,4 +4,5 @@
 *.cws
 *.project
 
-
+cvibuild.*/
+*.cds
