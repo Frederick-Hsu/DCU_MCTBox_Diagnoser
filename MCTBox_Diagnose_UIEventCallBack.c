@@ -11,8 +11,13 @@
 
 //==============================================================================
 // Include files
+#include <cvi2009compat.h>
 #include <windows.h>
-#include <asynctmr.h>
+#include <ansi_c.h>
+#include <userint.h>
+#include <utility.h>
+#include "asynctmr.h"
+// #include <toolbox\asynctmr.h>
 
 #include "MCTBox_Diagnose.h"
 #include "Connect2MCTBox.h"
